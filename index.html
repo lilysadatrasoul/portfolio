@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link  rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <button class="menu-toggle" type="button" aria-label="Open menu"
+            aria-expanded="false" aria-controls="main-nav"> ☰
+    </button>
+    <nav class="navbar" id="main-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+<!-- /////// -->
+    <section id="home">
+    <h1>Hi, I'm Lily</h1>
+    <p>I'm a Front-End Developer.</p>
+    <a  href="#projects">View My Projects </a>
+    </section>
+<!-- ////////////////////////////// -->
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="projects-toolbar">
+        <input
+            type="search"
+            id="project-search"
+            placeholder="Search projects..."
+        >
+        <p id="project-count"></p>
+    </div>
+
+    <div class="projects-grid"></div>
+
+    <div id="project-details" hidden>
+        <button
+        id="close-details"
+        type="button"
+        aria-label="Close project details">
+        ×
+        </button>
+        
+        <h3 id="detail-title"></h3>
+        <p id="detail-description"></p>
+    </div>
+
+    <p id="no-results">No projects found!</p>
+</section>
+
+
+<!-- //////////////////////////////// -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate front-end developer who enjoys 
+           building interactive and user-friendly websites.</p>
+    </section>
+<!-- ////////////////////////////////////////// -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </section>
+<!-- /////////////////////////////////////// -->
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <a href="https://github.com/lilysadatrasoul"
+       target="_blank"
+       rel="noopener noreferrer">
+        My GitHub
+    </a>
+
+    <form id="contact-form">
+
+        <label for="contact-name">Name</label>
+        <input
+            type="text"
+            id="contact-name"
+            name="name"
+            required
+        >
+
+        <label for="contact-email">Email</label>
+        <input
+            type="email"
+            id="contact-email"
+            name="email"
+            required
+        >
+
+        <label for="contact-message">Message</label>
+        <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+    <p id="contact-status" role="status"></p>
+</section>
+<!-- //////////////////////////////////////////////// -->
+
+
+<a href="#home" class="back-to-top" aria-label="Back to top">
+    ↑
+</a>
+
+
+<script src="script.js"></script>
+</body>
+</html>
