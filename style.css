@@ -22,7 +22,7 @@ body{
     color: #7c4dce;
     transition: color 0.3s ease;
     font-size: 20px;
-    
+
 }
 .navbar a:hover{
     color: #5e35b1;
@@ -59,12 +59,12 @@ body{
     border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
-     
+
 }
 #home a:hover {
     transform: translateY(-5px);
     background-color: #5e35b1;
-    
+
 }
 
 /* /////////////////////////////////// */
@@ -85,7 +85,7 @@ body{
     color: white;
     padding: 6px 12px;
     border-radius: 25px;
-    text-decoration: none; 
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 #projects a:hover {
@@ -281,7 +281,7 @@ body{
     color: white;
     padding: 6px 12px;
     border-radius: 25px;
-    text-decoration: none; 
+    text-decoration: none;
 }
 #contact h2 {
     color: #7c4dce;
@@ -387,7 +387,7 @@ html {
     grid-template-columns: 1fr;
     }
 
-    
+
 }
 
 
@@ -421,7 +421,7 @@ html {
 .back-to-top:hover {
      background-color: #5e35b1;
      box-shadow: 0 6px 20px rgba(80, 50, 130, 0);
-   
+
 }
 .back-to-top.show {
     opacity: 1;
@@ -430,10 +430,71 @@ html {
     transition: opacity 0.3s ease,background-color 0.3s ease,
     box-shadow 0.3s ease;
 }
-/* .highlight {
-    color: purple;
-    background-color: pink;
-    padding: 20px;
-    border-radius: 15px;
-    font-weight: bold;
-} */
+
+
+/* Improved project card buttons */
+
+.project-card {
+    gap: 10px;
+}
+
+.project-card .project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 220px;
+    min-height: 42px;
+    padding: 10px 16px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.project-card .details-button {
+    width: 100%;
+    max-width: 220px;
+    min-height: 42px;
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Project action buttons */
+
+.project-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.project-card .project-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.project-card .demo-link {
+    background-color: #5e35b1;
+}
+
+.project-card .details-button {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+

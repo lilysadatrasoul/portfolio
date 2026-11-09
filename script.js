@@ -71,6 +71,20 @@ const portfolioProjects = [
         title: "Beauty Salon",
         description: "A beauty salon website project in progress.",
         github: ""
+    },
+    {
+        id: 4,
+        title: "Luma Interior Studio",
+        description: "A responsive interior design website with interactive navigation and a functional contact form.",
+        github: "https://github.com/lilysadatrasoul/luma-interior-studio",
+        demo: "https://lilysadatrasoul.github.io/luma-interior-studio/"
+    },
+    {
+        id: 5,
+        title: "Donya Ghahremani Portfolio",
+        description: "A bilingual artist portfolio featuring dynamic artwork galleries, JSON-based content, and interactive modals.",
+        github: "https://github.com/lilysadatrasoul/donya-portfolio",
+        demo: "https://lilysadatrasoul.github.io/donya-portfolio/"
     }
 
 ];
@@ -102,28 +116,51 @@ function renderProjects(projectsToShow) {
         card.appendChild(title);
         card.appendChild(description);
 
-        if (project.github !== "") {
-            const link = document.createElement("a");
 
-            link.href = project.github;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.classList.add("project-link");
-            link.textContent = "View on GitHub";
+const linksContainer = document.createElement("div");
+linksContainer.classList.add("project-links");
 
-            card.appendChild(link);
-        }
-        const detailsButton = document.createElement("button");
+// GitHub link
+if (project.github) {
+    const githubLink = document.createElement("a");
 
-        detailsButton.textContent = "View Details";
-        detailsButton.classList.add("details-button");
-        detailsButton.type = "button";
+    githubLink.href = project.github;
+    githubLink.target = "_blank";
+    githubLink.rel = "noopener noreferrer";
+    githubLink.classList.add("project-link");
+    githubLink.textContent = "GitHub";
 
-        detailsButton.addEventListener("click", function() {
-             showProjectDetails(project.id);
-        });
+    linksContainer.appendChild(githubLink);
+}
 
-        card.appendChild(detailsButton);
+// Live Demo link
+if (project.demo) {
+    const demoLink = document.createElement("a");
+
+    demoLink.href = project.demo;
+    demoLink.target = "_blank";
+    demoLink.rel = "noopener noreferrer";
+    demoLink.classList.add("project-link", "demo-link");
+    demoLink.textContent = "Live Demo";
+
+    linksContainer.appendChild(demoLink);
+}
+
+    card.appendChild(linksContainer);
+
+    // View Details button
+    const detailsButton = document.createElement("button");
+
+    detailsButton.textContent = "View Details";
+    detailsButton.classList.add("details-button");
+    detailsButton.type = "button";
+
+    detailsButton.addEventListener("click", function () {
+    showProjectDetails(project.id);
+    });
+
+    card.appendChild(detailsButton);
+
 
         projectsGrid.appendChild(card);
     });
