@@ -19,11 +19,33 @@
         <a href="#contact">Contact</a>
     </nav>
 <!-- /////// -->
-    <section id="home">
-    <h1>Hi, I'm Lily</h1>
-    <p>I'm a Front-End Developer.</p>
-    <a  href="#projects">View My Projects </a>
-    </section>
+
+<section id="home">
+    <div class="hero-content">
+        <span class="hero-label">
+            Front-End Developer & Web Designer
+        </span>
+
+        <h1>Hi, I'm <span>Lily.</span></h1>
+
+        <h2>I build modern, responsive websites.</h2>
+
+        <p>
+            I create clean, user-friendly websites for
+            individuals and small businesses, combining
+            frontend development with thoughtful design
+            and AI-assisted workflows.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects">View My Work</a>
+            <a href="#contact" class="hero-secondary">
+                Contact Me
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ////////////////////////////// -->
 <section id="projects">
     <h2>My Projects</h2>
@@ -46,7 +68,7 @@
         aria-label="Close project details">
         ×
         </button>
-        
+
         <h3 id="detail-title"></h3>
         <p id="detail-description"></p>
     </div>
@@ -56,32 +78,89 @@
 
 
 <!-- //////////////////////////////// -->
-    <section id="about">
+
+<section id="about">
+    <div class="about-content">
+        <span class="section-label">GET TO KNOW ME</span>
+
         <h2>About Me</h2>
-        <p>I'm a passionate front-end developer who enjoys 
-           building interactive and user-friendly websites.</p>
-    </section>
+
+        <p>
+            I'm Lily, a front-end developer and web designer
+            who enjoys creating clean, responsive, and
+            user-friendly websites.
+        </p>
+
+        <p>
+            I started building websites independently in 2022,
+            working with HTML, CSS, JavaScript, and React.
+            Today, I combine my coding experience with
+            modern AI-assisted workflows.
+        </p>
+
+        <p>
+            I focus on understanding project requirements,
+            creating thoughtful designs, and delivering
+            websites that work well across different devices.
+        </p>
+
+        <a href="#contact" class="about-link">
+            Let's Work Together
+        </a>
+    </div>
+</section>
+
 <!-- ////////////////////////////////////////// -->
-    <section id="skills">
-        <h2>My Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
+
+<section id="skills">
+    <span class="section-label">WHAT I WORK WITH</span>
+    <h2>My Skills</h2>
+
+    <p class="skills-intro">
+        Tools and technologies I use to build modern websites.
+    </p>
+
+    <div class="skills-group">
+        <h3>Frontend Development</h3>
+        <ul class="skills-tags">
+            <li>HTML5</li>
+            <li>CSS3</li>
             <li>JavaScript</li>
+            <li>React</li>
         </ul>
-    </section>
+    </div>
+
+    <div class="skills-group">
+        <h3>Web Design</h3>
+        <ul class="skills-tags">
+            <li>Responsive Design</li>
+            <li>UI Design</li>
+            <li>Accessibility Basics</li>
+        </ul>
+    </div>
+
+    <div class="skills-group">
+        <h3>Tools &amp; Workflow</h3>
+        <ul class="skills-tags">
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>AI-Assisted Development</li>
+        </ul>
+    </div>
+</section>
+
 <!-- /////////////////////////////////////// -->
+
 <section id="contact">
     <h2>Contact Me</h2>
 
-    <a href="https://github.com/lilysadatrasoul"
-       target="_blank"
-       rel="noopener noreferrer">
-        My GitHub
-    </a>
+    <p class="contact-intro">
+        Have a project in mind?
+        I'd love to hear from you!
+    </p>
 
     <form id="contact-form">
-
         <label for="contact-name">Name</label>
         <input
             type="text"
@@ -106,12 +185,24 @@
             required
         ></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" id="submit-button">
+            Send Message
+        </button>
 
+        <p id="form-status" role="status"
+           aria-live="polite"></p>
     </form>
 
-    <p id="contact-status" role="status"></p>
+    <a
+        href="https://github.com/lilysadatrasoul"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-github"
+    >
+        My GitHub
+    </a>
 </section>
+
 <!-- //////////////////////////////////////////////// -->
 
 
