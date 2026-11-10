@@ -53,41 +53,33 @@ updateBackToTop();
 // 3. Portfolio Projects Data
 // ========================================
 
+
 const portfolioProjects = [
-    {
-        id: 1,
-        title: "Tech Store",
-        description: "An online store built with HTML, CSS, and JavaScript.",
-        github: "https://github.com/lilysadatrasoul/shop-app"
-    },
-    {
-        id: 2,
-        title: "Quiz App",
-        description: "An interactive quiz app built with HTML, CSS, and JavaScript.",
-        github: ""
-    },
-    {
-        id: 3,
-        title: "Beauty Salon",
-        description: "A beauty salon website project in progress.",
-        github: ""
-    },
     {
         id: 4,
         title: "Luma Interior Studio",
         description: "A responsive interior design website with interactive navigation and a functional contact form.",
         github: "https://github.com/lilysadatrasoul/luma-interior-studio",
-        demo: "https://lilysadatrasoul.github.io/luma-interior-studio/"
+        demo: "https://lilysadatrasoul.github.io/luma-interior-studio/",
+        image: "images/luma-preview.png"
     },
     {
         id: 5,
         title: "Donya Ghahremani Portfolio",
         description: "A bilingual artist portfolio featuring dynamic artwork galleries, JSON-based content, and interactive modals.",
         github: "https://github.com/lilysadatrasoul/donya-portfolio",
-        demo: "https://lilysadatrasoul.github.io/donya-portfolio/"
+        demo: "https://lilysadatrasoul.github.io/donya-portfolio/",
+        image: "images/donya-preview.png"
+    },
+    {
+        id: 1,
+        title: "Tech Store",
+        description: "An interactive e-commerce frontend demo featuring product filtering, a shopping cart, and dark mode.",
+        github: "https://github.com/lilysadatrasoul/shop-app",
+        image: "images/tech-store-preview.png"
     }
-
 ];
+
 
 
 // ========================================
@@ -106,6 +98,19 @@ function renderProjects(projectsToShow) {
 
         const card = document.createElement("div");
         card.classList.add("project-card");
+
+
+        if (project.image) {
+            const projectImage = document.createElement("img");
+
+            projectImage.src = project.image;
+            projectImage.alt = `Preview of ${project.title}`;
+            projectImage.classList.add("project-image");
+            projectImage.loading = "lazy";
+
+            card.appendChild(projectImage);
+        }
+
 
         const title = document.createElement("h3");
         title.textContent = `${index + 1}. ${project.title}`;
@@ -244,23 +249,54 @@ filterProjects();
 // 6. Contact Form Validation
 // ========================================
 
-const contactForm = document.querySelector("#contact-form");
-const contactStatus = document.querySelector("#contact-status");
 
-const contactNameInput = document.querySelector("#contact-name");
-const contactMessageInput = document.querySelector("#contact-message");
+const contactForm = document.getElementById("contact-form");
+const submitButton = document.getElementById("submit-button");
+const formStatus = document.getElementById("form-status");
 
-contactForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (contactForm && submitButton && formStatus) {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    const name = contactNameInput.value.trim();
-    const message = contactMessageInput.value.trim();
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
 
-    if (name === "" || message === "") {
-        contactStatus.textContent = "Please enter your name and message.";
-        return;
-    }
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        formStatus.textContent = "Sending your message...";
 
-    contactStatus.textContent =
-        `Thanks ${name}! Your form is valid, but no message has been sent yet.`;
-});
+        try {
+            const response = await fetch(
+                "https://formspree.io/f/mljjqbvw",
+                {
+                    method: "POST",
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Message could not be sent");
+            }
+
+            formStatus.textContent =
+                "Your message was sent successfully!";
+
+            contactForm.reset();
+
+        } catch (error) {
+            console.error("Contact form error:", error);
+
+            formStatus.textContent =
+                "Something went wrong. Please try again.";
+
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+        }
+    });
+}
